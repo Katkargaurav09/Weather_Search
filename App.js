@@ -8,8 +8,11 @@ searchData.addEventListener("click", (e) => {
 async function fetchWeatherData(cityName) {
   try {
     console.log(cityName);
-    let data = await window.fetch(`https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=9a4d757b8be168a7d7b02b07027133e2`);
+    let data = await window.fetch(
+      `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=9a4d757b8be168a7d7b02b07027133e2`
+    );
     let finalData = await data.json();
+    console.log(finalData);
     let displayData = document.querySelector(".display-data");
     let displayTemp = document.querySelector(".display-temp");
     let displayLocation = document.querySelector(".display-location");

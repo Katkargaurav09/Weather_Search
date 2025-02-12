@@ -3,75 +3,212 @@
   padding: 0;
   box-sizing: border-box;
 }
-body{
-    width: 100vw;
-    height: 100vh;
-    font-family: cursive;
+:root {
+  --white: #ffffff;
+  --off-white: #e5e5e5;
+  --transp-white-1: rgba(255, 255, 255, 0.25);
+  --transp-white-2: rgba(255, 255, 255, 0.1);
+  --blue-1: #62b8f5;
+  --blue-2: #4475ef;
+  --shadow: rgba(3, 46, 87, 0.2);
 }
-.container-main{
-    height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+body {
+  width: 100vw;
+  height: 100vh;
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--blue-1), var(--blue-2));
 }
-.container-main > article{
-    border: 1px solid black;
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-    background: purple;
-    padding: 20px;
+.container-main {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
-.display-data{
-    padding: 10px;
-    font-size: 30px;
-    color: #fff;
-    padding-left: 40px;
+.container-main > article {
+  position: relative;
+  border: 2px solid var(--transp-white-2);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  background: var(--transp-white-1);
+  padding: 20px;
 }
-.a2{
-    display: flex;
-    margin: 5px 10px;
-    align-items: center;
-    justify-content: space-between;
-    gap: 15px;
+.display-data {
+  padding: 10px;
+  font-size: 30px;
+  color: #fff;
+  padding-left: 40px;
 }
-.a2 > input{
-    padding: 10px 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
+.shape {
+  position: absolute;
+  background-color: var(--transp-white-1);
+  backdrop-filter: blur(1.2em);
+  border: 2px solid var(--transp-white-2);
+  border-radius: 50%;
+}
+.shape-1 {
+  height: 13em;
+  width: 13em;
+  right: 25em;
+  top: 3em;
+}
+.shape-2 {
+  height: 11em;
+  width: 11em;
+  bottom: 3em;
+  left: 28em;
+}
+.a2 {
+  display: flex;
+  margin: 5px 10px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+.a2 > input {
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-bottom: 2px solid var(--transp-white-1);
+  background-color: transparent;
+  color: var(--white);
+}
+.a2 input::placeholder {
+  color: var(--off-white);
 }
 .a2 > button {
-    padding: 10px 20px;
-    outline: none;
-    border: none;
-    border-radius: 5px;
-    background: #000;
-    color: #fff;
+  padding: 10px 20px;
+  outline: none;
+  border: none;
+  border-radius: 5px;
+  background: var(--white);
+  color: var(--blue-1);
 }
 .a3 {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+}
+.display-temp {
+  font-size: 50px;
+  color: #fff;
+}
+.display-location {
+  font-size: 20px;
+  color: #fff;
+}
+.a4 {
+  display: flex;
+  margin: 5px 20px;
+  justify-content: space-between;
+  font-size: 20px;
+  color: #fff;
+}
+#icon {
+  border-radius: 100%;
+  height: 100px;
+}
+
+/* Responsive Design */
+/* Tablets and medium screens */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .container-main {
+    max-width: 1024px;
     display: flex;
-    flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 15px;
+  }
+
+  .display-data {
+    font-size: 26px;
+  }
+
+  .shape-1 {
+    height: 10em;
+    width: 10em;
+    right: 8em;
+    top: 17em;
+  }
+
+  .shape-2 {
+    height: 9em;
+    width: 9em;
+    bottom: 16em;
+    left: 8em;
+  }
+
+  .display-temp {
+    font-size: 40px;
+  }
+
+  .a4 {
+    flex-direction: column;
+    gap: 10px;
+  }
 }
-.display-temp{
-    font-size: 50px;
-    color: #fff;
+
+/* Mobile screens */
+@media screen and (max-width: 768px) {
+  .container-main {
+    width: 100%;
+  }
+
+  .shape-1 {
+    height: 8em;
+    width: 8em;
+    right: 1em;
+    top: 1em;
+  }
+
+  .shape-2 {
+    height: 7em;
+    width: 7em;
+    bottom: 1em;
+    left: 2em;
+  }
+
+  .display-data {
+    font-size: 22px;
+  }
+
+  .a2 {
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .a2 > input {
+    width: 100%;
+    text-align: center;
+  }
+
+  .a2 > button {
+    width: 100%;
+  }
+
+  .display-temp {
+    font-size: 35px;
+  }
+
+  .a4 {
+    flex-direction: column;
+    text-align: center;
+  }
 }
-.display-location{
+
+/* Small mobile screens */
+@media screen and (max-width: 480px) {
+  .display-data {
     font-size: 20px;
-    color: #fff;
-}
-.a4{
-    display: flex;
-    margin: 5px 20px;
-    justify-content: space-between;
-    font-size: 20px;
-    color: #fff;
-}
-#icon{
-    border-radius: 100%;
-    height: 100px;
+  }
+
+  .shape-1,
+  .shape-2 {
+    display: none;
+  }
+
+  .display-temp {
+    font-size: 30px;
+  }
 }
